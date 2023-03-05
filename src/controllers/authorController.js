@@ -15,12 +15,24 @@ const createAuhthor = async function (req, res) {
             return res.status(400).send({ status: false, message: "author first name is required" })
         }
 
+        if(typeof fname !== 'string'){
+            return res.status(400).send({status : false, message : "fname is invalid"})
+        }
+
         if (!lname || lname == "") {
             return res.status(400).send({ status: false, message: "author last name is required" })
         }
 
+         if(typeof lname !== 'string'){
+            return res.status(400).send({status : false, message : "lname is invalid"})
+        }
+
         if (!title || title == "") {
             return res.status(400).send({ status: false, message: "author title is required" })
+        }
+
+        if (typeof title !== "string") {
+            return res.status(400).send({ status: false, message: "author title is invalid" })
         }
 
         if (!email || email == "") {
